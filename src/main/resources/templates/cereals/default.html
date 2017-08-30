@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cereals</title>
+</head>
+<body>
+
+<h1>manufacturers</h1>
+
+<form method="post" action="/cereals/manufacturers">
+	<input type="text" name="name">
+	<button>Do it!</button>
+</form>
+
+<table border="2">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#manufacturers}}
+			<tr>
+				<td>{{ id }}</td>
+				<td>{{ name }}</td>
+				<td>
+					<form method="post" action="/cereals/manufacturers/{{ id }}/delete">
+						<button>Buh bye</button>
+					</form>
+				</td>
+			</tr>
+		{{/manufacturers}}
+	</tbody>
+</table>
+
+<h1>cereals</h1>
+
+<form method="post" action="/cereals">
+	<input placeholder="name" type="text" name="name" required>
+	<input placeholder="year" type="number" name="yearIntroduced" required>
+	<select name="manufacturer_id">
+		{{#manufacturers}}
+			<option value="{{ id }}">{{ name }}</option>
+		{{/manufacturers}}
+	</select>
+	<button>Do it!</button>
+</form>
+
+<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			
+			<th>Name</th>
+			<th>Year Introduced</th>
+			<th>Manufacturer</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#cereals}}
+			<tr>
+				<td>{{ id }}</td>
+				<td>{{ name }}</td>
+				<td>{{ yearIntroduced }}</td>
+				<td>{{ manufacturer.name }}</td>
+			</tr>
+		{{/cereals}}
+	</tbody>
+</table>
+
+</body>
+
+
+
+
+</html>
