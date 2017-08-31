@@ -1,10 +1,8 @@
 package com.theironyard.app.api;
 
-import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.theironyard.app.models.Cereal;
 import com.theironyard.app.models.Kid;
 import com.theironyard.app.services.KidRepository;
 
@@ -27,10 +24,10 @@ public class KidApiController {
 	public KidApiController(KidRepository kidRepo) {
 		this.kidRepo = kidRepo;
 		
-		kidRepo.save(new Kid("Abir", 2));
-		kidRepo.save(new Kid("Penelope", 4));
-		kidRepo.save(new Kid("Matthew", 9));
-		kidRepo.save(new Kid("Gabrielle", 21));
+//		kidRepo.save(new Kid("Abir", 2));
+//		kidRepo.save(new Kid("Penelope", 4));
+//		kidRepo.save(new Kid("Matthew", 9));
+//		kidRepo.save(new Kid("Gabrielle", 21));
 	}
 
 	@GetMapping("")
